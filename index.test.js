@@ -8,13 +8,14 @@ describe('Tester toute les fonction du module ciql-json', () => {
         expect(ciqlJson
             .open("package.json")
             .set('location', 'abidjan')
-            .extract('{name, location, scripts}')
+            .set('adress.nom', '')
+            .extract('{name, location, scripts, adress}')
             .save('test.json'))
     })
 
     test('Create ', () => {
         expect(ciqlJson.create())
-        expect(ciqlJson.create('dggt'))
+        expect(ciqlJson.create({nom:"edy"}).save())
         const data = ciqlJson.create({ nom: 'edy', prenoms: 'koffi', age: 15 }).extract("{age}").getData()
         expect(data).toEqual({ age: 15 })
     });

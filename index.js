@@ -12,6 +12,7 @@ module.exports = {
     create(object) {
         try {
             if (object instanceof Object) {
+                this.init()
                 this.data = object
                 return this
             } else {
@@ -36,6 +37,7 @@ module.exports = {
         if (fs.existsSync(input)) {
             let file = path.resolve(input)
             if (path.extname(file) === '.json') {
+                this.init()
                 this.data = require(path.resolve(input))
                 this.file = file
                 return this
@@ -58,9 +60,10 @@ module.exports = {
     save(output) {
         try {
             fs.writeFileSync(output || this.file, JSON.stringify(this.data))
-            this.init()
         } catch (error) {
             console.error("Error (Function save): ", error.message);
+        } finally{
+            this.init()
         }
     },
     getData() {
@@ -68,6 +71,8 @@ module.exports = {
             return this.data
         } catch (error) {
             console.error("Error (Function getData) : ", error.message);
+        }finally {
+            this.init()
         }
     }
 }
