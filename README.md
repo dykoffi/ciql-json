@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img width="200" src="logoCIQLJSON2.png" alt="Material Bread logo">
+  <img width="200" src="./logoCIQLJSON2.png" alt="Material Bread logo">
 </p>
 
 <h1 align="center" style="color:grey;font-family:">CIQL JSON</h1>
@@ -10,6 +10,7 @@
 <h1 style="color:#9fa8da;">Intallation</h1>
 
 > yarn add ciql-json
+> 
 > npm i ciql-json
 
 <h1 style="color:#9fa8da;">Usage</h1>
@@ -19,7 +20,7 @@
 const ciqlJSON = require('ciql-json')
 ```
 <h3 id="funcopen" style="color:#ff80ab;">
-<a href="#funcopen"># </a> .open</h3>
+<a href="#funcopen"># .open</a></h3>
 
 <p style="font-size:16.5px">
 vous utilisez la fonction <code>open</code> pour ouvrir un fichier json existant. Une fois le fichier lie vous avez access aux fontions de modification.
@@ -39,7 +40,7 @@ Si vous ne precisez pas de fichier dans la fonction set, les modifications s'eff
 
 
 <h3 id="funccreate" style="color:#ff80ab;">
-<a href="#funccreate"># </a> .create</h3>
+<a href="#funccreate"># .create</a></h3>
 <p style="font-size:16.5px">
 Utilisez la fonction <code>create</code> pour initialiser un object json.
 </p>
@@ -56,7 +57,7 @@ ciqlJson
 ```
 
 <h3 id="funcsave" style="color:#ff80ab;">
-<a href="#funcsave"># </a> .save</h3>
+<a href="#funcsave"># .save</a> </h3>
 <p style="font-size:16.5px">
 Utilisez la fonction <code>save</code> pour initialiser un object json.
 </p>
@@ -73,7 +74,7 @@ ciqlJson
 ```
 
 <h3 id="funcset" style="color:#ff80ab;">
-<a href="#funcset"># </a> .set</h3>
+<a href="#funcset">#  .set</a></h3>
 
 <p style="font-size:16.5px">
 Utilisez la methode <code>set</code> pour ajouter ou modifier les valeur de l'objet JSON
@@ -111,7 +112,7 @@ ciqlJson
 
 
 <h3 id="funcextract" style="color:#ff80ab;">
-<a href="#funcextract"># </a> .extract</h3>
+<a href="#funcextract">#  .extract</a></h3>
 <p style="font-size:16.5px">
 Extract format in json file suivant le modele de destructuration *ES6*
 </p>
@@ -129,7 +130,7 @@ ciqlJson
 ```
 
 <h3 id="funcgetData" style="color:#ff80ab;">
-<a href="#funcgetData"># </a> .getData</h3>
+<a href="#funcgetData"># .getData</a></h3>
 
 <p style="font-size:16.5px">
 Utiliser <code>getData</code> si vous voulez retourner la valeur finale du json dans une variable.
