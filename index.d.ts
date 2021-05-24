@@ -14,7 +14,7 @@ export type CIJSON = {
      * @param key Key of JSON Object
      * @param value The value you want to set
      */
-    set(key: string, value: string | object): CIJSON
+    set(key: string, value: any): CIJSON
     /**
      * Save final JSON in FIle
      * @param output Output file to save JSON Object
