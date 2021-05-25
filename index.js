@@ -57,12 +57,21 @@ module.exports = {
         }
 
     },
+    pushTo(key, ...values) {
+        try {
+            eval(`this.data.${key}.push(...values)`)
+            return this
+        } catch (error) {
+            console.error("Error (Function push) : ", error.message);
+        }
+
+    },
     save(output) {
         try {
             fs.writeFileSync(output || this.file, JSON.stringify(this.data))
         } catch (error) {
             console.error("Error (Function save): ", error.message);
-        } finally{
+        } finally {
             this.init()
         }
     },
@@ -71,7 +80,7 @@ module.exports = {
             return this.data
         } catch (error) {
             console.error("Error (Function getData) : ", error.message);
-        }finally {
+        } finally {
             this.init()
         }
     }

@@ -10,11 +10,17 @@ export type CIJSON = {
      */
     extract(schema: string): CIJSON
     /**
-     * Set data in JSON Object
+     * Set data in an array value
      * @param key Key of JSON Object
      * @param value The value you want to set
      */
     set(key: string, value: any): CIJSON
+    /**
+    * Push data in JSON Object
+    * @param key Key of JSON Object
+    * @param values The values you want to push
+    */
+    pushTo(key: string, ...values: any[]): CIJSON
     /**
      * Save final JSON in FIle
      * @param output Output file to save JSON Object

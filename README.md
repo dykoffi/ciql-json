@@ -127,6 +127,22 @@ ciqlJson
 //output file (data.json): {school : "ESATIC"}
 ```
 
+<h3 id="funcpush" style="color:#ff80ab;">
+<a href="#funcpush">#  .push</a></h3>
+Add data to an array value.
+</p>
+
+```js
+const ciqlJson = require("ciql-json")
+
+ciqlJson
+    .create({school : "ESATIC", courses : []})
+    .pushTo("courses","Data Sciences", "MERISE")
+    .save('data.json')
+
+//output file (data.json): {school : "ESATIC", courses : ["Data Sciences", "MERISE"]}
+```
+
 <h3 id="funcgetData" style="color:#ff80ab;">
 <a href="#funcgetData"># .getData</a></h3>
 

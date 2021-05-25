@@ -1,6 +1,6 @@
 const ciqlJson = require(".")
 
-describe('Tester toute les fonction du module ciql-json', () => {
+describe('Tester toute les fonctions du module ciql-json', () => {
 
     test('La fonction Open', () => {
         expect(ciqlJson.open("yarn.lock"))
@@ -29,6 +29,13 @@ describe('Tester toute les fonction du module ciql-json', () => {
                 .set("school.name", "ESATIC")
                 .set("school.location", "Treichville")
                 .getData()
-        ).toEqual({school : {name : "ESATIC", location: "Treichville",}})
-    });;
+        ).toEqual({ school: { name: "ESATIC", location: "Treichville", } })
+    });
+
+    test('La fonction push', () => {
+        ciqlJson
+            .create({ school: "ESATIC", courses: [] })
+            .pushTo("courses", "Data Sciences", "MERISE")
+            .save('data.json')
+    });
 })
