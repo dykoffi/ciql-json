@@ -10,7 +10,7 @@ describe('Tester toute les fonctions du module ciql-json', () => {
             .set('location', 'abidjan')
             .set('adress.nom', '')
             .extract('{name, location, scripts, adress}')
-            .save('test.json'))
+            .getData())
     })
 
     test('Create ', () => {
@@ -33,9 +33,12 @@ describe('Tester toute les fonctions du module ciql-json', () => {
     });
 
     test('La fonction push', () => {
-        ciqlJson
+        expect(
+
+            ciqlJson
             .create({ school: "ESATIC", courses: [] })
             .pushTo("courses", "Data Sciences", "MERISE")
-            .save('data.json')
-    });
+            .getData()
+            ).toEqual({ school: "ESATIC", courses: ["Data Sciences", "MERISE"]})
+        });
 })

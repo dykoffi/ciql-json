@@ -53,7 +53,7 @@ ciqlJson
     .set("address", {town : "Abidjan", city : "Marcory"})
     .save("me.json")
 
-    //output file (me.json): {name:"Edy", address : {town : "Abidjan", city : "Marcory"}
+//output file (me.json): {name:"Edy", address : {town : "Abidjan", city : "Marcory"}
 ```
 <b>NB : </b>In this case, If you do not specify an output file, there is an error because there, not input file.
 </p>
@@ -71,7 +71,7 @@ ciqlJson
     .create({name : "Edy", school : "ESATIC"})
     .save("data.json")
 
-    //output file (data.json): {name:"Edy", school : "ESATIC"}
+//output file (data.json): {name:"Edy", school : "ESATIC"}
 ```
 
 <h3 id="funcset" style="color:#ff80ab;">
@@ -110,9 +110,26 @@ ciqlJson
 //output file (data.json): {school : {name : "ESATIC", location: "Treichville",}}
 ```
 
+<h3 id="funcpush" style="color:#ff80ab;">
+<a href="#funcpush">#  .pushTo</a></h3>
+<p style="font-size:16.5px">
+Add data to an array value.
+</p>
+
+```js
+const ciqlJson = require("ciql-json")
+
+ciqlJson
+    .create({school : "ESATIC", courses : []})
+    .pushTo("courses","Data Sciences", "MERISE")
+    .save('data.json')
+
+//output file (data.json): {school : "ESATIC", courses : ["Data Sciences", "MERISE"]}
+```
 
 <h3 id="funcextract" style="color:#ff80ab;">
 <a href="#funcextract">#  .extract</a></h3>
+<p style="font-size:16.5px">
 Extract a schema in the JSON object following the destructuring of ES6.
 </p>
 
@@ -127,21 +144,6 @@ ciqlJson
 //output file (data.json): {school : "ESATIC"}
 ```
 
-<h3 id="funcpush" style="color:#ff80ab;">
-<a href="#funcpush">#  .pushTo</a></h3>
-Add data to an array value.
-</p>
-
-```js
-const ciqlJson = require("ciql-json")
-
-ciqlJson
-    .create({school : "ESATIC", courses : []})
-    .pushTo("courses","Data Sciences", "MERISE")
-    .save('data.json')
-
-//output file (data.json): {school : "ESATIC", courses : ["Data Sciences", "MERISE"]}
-```
 
 <h3 id="funcgetData" style="color:#ff80ab;">
 <a href="#funcgetData"># .getData</a></h3>
