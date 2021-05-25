@@ -128,7 +128,7 @@ ciqlJson
 ```
 
 <h3 id="funcpush" style="color:#ff80ab;">
-<a href="#funcpush">#  .push</a></h3>
+<a href="#funcpush">#  .pushTo</a></h3>
 Add data to an array value.
 </p>
 
