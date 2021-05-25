@@ -15,7 +15,7 @@ describe('Tester toute les fonction du module ciql-json', () => {
 
     test('Create ', () => {
         expect(ciqlJson.create())
-        expect(ciqlJson.create({nom:"edy"}).save())
+        expect(ciqlJson.create({ nom: "edy" }).save())
         const data = ciqlJson.create({ nom: 'edy', prenoms: 'koffi', age: 15 }).extract("{age}").getData()
         expect(data).toEqual({ age: 15 })
     });
@@ -23,5 +23,12 @@ describe('Tester toute les fonction du module ciql-json', () => {
     test('extract and error catch', () => {
         expect(ciqlJson.create({}).extract(""))
         expect(ciqlJson.create({}).set())
+        expect(
+            ciqlJson
+                .create({ school: {} })
+                .set("school.name", "ESATIC")
+                .set("school.location", "Treichville")
+                .getData()
+        ).toEqual({school : {name : "ESATIC", location: "Treichville",}})
     });;
 })

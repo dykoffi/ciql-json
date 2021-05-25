@@ -14,7 +14,8 @@
   },
   "keywords": [
     "json",
-    "ciql"
+    "ciql",
+    "ciql-json"
   ],
   "license": "MIT",
   "type": "commonjs",
