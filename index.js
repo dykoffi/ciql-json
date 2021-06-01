@@ -51,9 +51,14 @@ module.exports = {
     set(key, value) {
         try {
             eval(`this.data.${key} = value`)
-            return this
         } catch (error) {
-            console.error("Error (Function set) : ", error.message);
+            try {
+                this.data[key] = value
+            } catch (error) {
+                console.error("Error (Function set) : ", error.message);
+            }
+        } finally {
+            return this
         }
 
     },
@@ -62,7 +67,16 @@ module.exports = {
             eval(`this.data.${key}.push(...values)`)
             return this
         } catch (error) {
-            console.error("Error (Function push) : ", error.message);
+            console.error("Error (Function pushTo) : ", error.message);
+        }
+
+    },
+    popTo(key) {
+        try {
+            eval(`this.data.${key}.pop()`)
+            return this
+        } catch (error) {
+            console.error("Error (Function popTo) : ", error.message);
         }
 
     },

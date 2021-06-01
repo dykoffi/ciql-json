@@ -6,11 +6,11 @@ export type CIJSON = {
     init(): void
     /**
      * Extract schema in json
-     * @param schema Schema you want extract in json object
+     * @param schema Schema you want extract in JSON object
      */
     extract(schema: string): CIJSON
     /**
-     * Set data in an array value
+     * Set data in an JSON value
      * @param key Key of JSON Object
      * @param value The value you want to set
      */
@@ -21,6 +21,11 @@ export type CIJSON = {
     * @param values The values you want to push
     */
     pushTo(key: string, ...values: any[]): CIJSON
+    /**
+    * Push data in JSON Object
+    * @param key Key of JSON Object
+    */
+    popTo(key: string): CIJSON
     /**
      * Save final JSON in FIle
      * @param output Output file to save JSON Object

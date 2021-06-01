@@ -32,13 +32,26 @@ describe('Tester toute les fonctions du module ciql-json', () => {
         ).toEqual({ school: { name: "ESATIC", location: "Treichville", } })
     });
 
-    test('La fonction push', () => {
+    test('La fonction pushTo', () => {
         expect(
 
             ciqlJson
-            .create({ school: "ESATIC", courses: [] })
-            .pushTo("courses", "Data Sciences", "MERISE")
-            .getData()
-            ).toEqual({ school: "ESATIC", courses: ["Data Sciences", "MERISE"]})
-        });
+                .create({ school: "ESATIC", courses: [] })
+                .pushTo("courses", "Data Sciences", "MERISE")
+                .getData()
+        ).toEqual({ school: "ESATIC", courses: ["Data Sciences", "MERISE"] })
+    });
+    test('La fonction popTo', () => {
+        expect(
+            ciqlJson
+                .create({ school: "ESATIC", courses: ["Data Sciences", "MERISE"] })
+                .popTo("courses")
+                .getData()
+        ).toEqual({ school: "ESATIC", courses: ["Data Sciences"] })
+    });
+
+    test('version', () => {
+        let t = ciqlJson.create({}).set("1.2.3",{name : "edy"}).getData()
+        expect(t).toEqual({"1.2.3":{name : "edy"}})
+    });
 })
