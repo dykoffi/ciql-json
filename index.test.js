@@ -51,7 +51,14 @@ describe('Tester toute les fonctions du module ciql-json', () => {
     });
 
     test('version', () => {
-        let t = ciqlJson.create({}).set("1.2.3",{name : "edy"}).getData()
-        expect(t).toEqual({"1.2.3":{name : "edy"}})
+        let t = ciqlJson.create({}).set("1.2.3", { name: "edy" }).getData()
+        expect(t).toEqual({ "1.2.3": { name: "edy" } })
+    });
+
+    test('getValues', () => {
+
+    });
+    test('getKeys', () => {
+
     });
 })

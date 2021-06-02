@@ -1,4 +1,5 @@
 const fs = require('fs')
+const { resolve } = require('path')
 const path = require('path')
 
 
@@ -82,7 +83,7 @@ module.exports = {
     },
     save(output) {
         try {
-            fs.writeFileSync(output || this.file, JSON.stringify(this.data))
+            fs.writeFileSync(resolve(output || this.file), JSON.stringify(this.data, null, 4))
         } catch (error) {
             console.error("Error (Function save): ", error.message);
         } finally {
@@ -97,5 +98,23 @@ module.exports = {
         } finally {
             this.init()
         }
-    }
+    },
+    getValues() {
+        try {
+            return Object.values(this.data)
+        } catch (error) {
+            console.error("Error (Function getValues) : ", error.message);
+        } finally {
+            this.init()
+        }
+    },
+    getKeys() {
+        try {
+            return Object.keys(this.data)
+        } catch (error) {
+            console.error("Error (Function getKeys) : ", error.message);
+        } finally {
+            this.init()
+        }
+    },
 }

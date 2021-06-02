@@ -35,6 +35,14 @@ export type CIJSON = {
      * Get data JSON as Object
      */
     getData(): object
+    /**
+    * Get keys of JSON
+    */
+    getValues(): object
+    /**
+    * Get values of JSON
+    */
+    getKeys(): object
 }
 
 
