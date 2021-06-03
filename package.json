@@ -1,6 +1,6 @@
 {
   "name": "ciql-json",
-  "version": "1.5.6",
+  "version": "1.8.0",
   "description": "utils for json file",
   "repository": {
     "url": "https://github.com/dykoffi/ciql-json"
