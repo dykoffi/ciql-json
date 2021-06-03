@@ -34,7 +34,6 @@ describe('Tester toute les fonctions du module ciql-json', () => {
 
     test('La fonction pushTo', () => {
         expect(
-
             ciqlJson
                 .create({ school: "ESATIC", courses: [] })
                 .pushTo("courses", "Data Sciences", "MERISE")
@@ -56,9 +55,20 @@ describe('Tester toute les fonctions du module ciql-json', () => {
     });
 
     test('getValues', () => {
-
+        let t = ciqlJson.create({}).set("1.2.3", { name: "edy" }).getValues()
+        expect(t).toEqual([{ name: "edy" }])
     });
     test('getKeys', () => {
-
+        let t = ciqlJson.create({}).set("1.2.3", { name: "edy" }).getKeys()
+        expect(t).toEqual(["1.2.3"])
+    });
+    test('save', () => {
+        expect(
+            ciqlJson
+                .open("test.json")
+                .popTo("courses")
+                .pushTo("courses","edy","koffi")
+                .save()
+        )
     });
 })

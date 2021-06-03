@@ -35,19 +35,24 @@ module.exports = {
         }
     },
     open(input) {
-        if (fs.existsSync(input)) {
-            let file = path.resolve(input)
-            if (path.extname(file) === '.json') {
-                this.init()
-                this.data = require(path.resolve(input))
-                this.file = file
-                return this
+        try {
+            if (fs.existsSync(input)) {
+                let file = path.resolve(input)
+                if (path.extname(file) === '.json') {
+                    this.init()
+                    this.data = require(file)
+                    this.file = file
+                    return this
+                } else {
+                    console.error("Error (Function open) : ", input, "It's not a json file");
+                }
             } else {
-                console.error("Error (Function open) : ", input, "It's not a json file");
+                console.error("Error (Function open) : ", input, "Not exist");
             }
-        } else {
-            console.error("Error (Function open) : ", input, "Not exist");
+        } catch (error) {
+            console.error("Error (Function open) : ", error.message)
         }
+
     },
     set(key, value) {
         try {
@@ -66,18 +71,28 @@ module.exports = {
     pushTo(key, ...values) {
         try {
             eval(`this.data.${key}.push(...values)`)
-            return this
         } catch (error) {
-            console.error("Error (Function pushTo) : ", error.message);
+            try {
+                this.data[key].push(...values)
+            } catch (error) {
+                console.error("Error (Function pushTo) : ", error.message);
+            }
+        } finally {
+            return this
         }
 
     },
     popTo(key) {
         try {
             eval(`this.data.${key}.pop()`)
-            return this
         } catch (error) {
-            console.error("Error (Function popTo) : ", error.message);
+            try {
+                this.data[key].pop()
+            } catch (error) {
+                console.error("Error (Function popTo) : ", error.message);
+            }
+        }finally{
+            return this
         }
 
     },
