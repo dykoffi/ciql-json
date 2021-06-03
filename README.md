@@ -55,6 +55,8 @@ ciqlJson
 
 //output file (me.json): {name:"Edy", address : {town : "Abidjan", city : "Marcory"}
 ```
+
+<p style="font-size:16.5px">
 <b>NB : </b>In this case, If you do not specify an output file, there is an error because there, not input file.
 </p>
 
@@ -110,23 +112,6 @@ ciqlJson
 //output file (data.json): {school : {name : "ESATIC", location: "Treichville",}}
 ```
 
-<h3 id="funcpush" style="color:#ff80ab;">
-<a href="#funcpush">#  .pushTo</a></h3>
-<p style="font-size:16.5px">
-Add data to an array value.
-</p>
-
-```js
-const ciqlJson = require("ciql-json")
-
-ciqlJson
-    .create({school : "ESATIC", courses : []})
-    .pushTo("courses","Data Sciences", "MERISE")
-    .save('data.json')
-
-//output file (data.json): {school : "ESATIC", courses : ["Data Sciences", "MERISE"]}
-```
-
 <h3 id="funcextract" style="color:#ff80ab;">
 <a href="#funcextract">#  .extract</a></h3>
 <p style="font-size:16.5px">
@@ -144,6 +129,41 @@ ciqlJson
 //output file (data.json): {school : "ESATIC"}
 ```
 
+
+<h3 id="funcpush" style="color:#ff80ab;">
+<a href="#funcpush">#  .pushTo</a></h3>
+<p style="font-size:16.5px">
+Add data to an array value.
+</p>
+
+```js
+const ciqlJson = require("ciql-json")
+
+ciqlJson
+    .create({school : "ESATIC", courses : []})
+    .pushTo("courses","Data Sciences", "MERISE")
+    .save('data.json')
+
+//output file (data.json): {school : "ESATIC", courses : ["Data Sciences", "MERISE"]}
+```
+
+<h3 id="funcpop" style="color:#ff80ab;">
+<a href="#funcpop">#  .popTo</a></h3>
+<p style="font-size:16.5px">
+Delete last data to an array value.
+</p>
+
+```js
+const ciqlJson = require("ciql-json")
+
+ciqlJson
+    .create({school : "ESATIC", courses : []})
+    .pushTo("courses","Data Sciences", "MERISE")
+    .popTo("courses")
+    .save('data.json')
+
+//output file (data.json): {school : "ESATIC", courses : ["Data Sciences"]}
+```
 
 <h3 id="funcgetData" style="color:#ff80ab;">
 <a href="#funcgetData"># .getData</a></h3>
@@ -164,7 +184,69 @@ const data = ciqlJson
 
 //output : data = {school : "ESATIC", location : "Treichville"}
 ```
+<h3 id="funcgetKeys" style="color:#ff80ab;">
+<a href="#funcgetKeys"># .getKeys</a></h3>
 
+<p style="font-size:16.5px">
+<code>getKeys</code> return keys of the json Object.
+</p>
+
+
+```js
+const ciqlJson = require("ciql-json")
+
+const data = ciqlJson
+                .create({})
+                .set("school", "ESATIC")
+                .set("location", "Treichville")
+                .getKeys()
+
+//output : data = ["school", "location" ]
+```
+
+<h3 id="funcgetValues" style="color:#ff80ab;">
+<a href="#funcgetValues"># .getValues</a></h3>
+
+<p style="font-size:16.5px">
+<code>getValues</code> return values of the json Object.
+</p>
+
+
+```js
+const ciqlJson = require("ciql-json")
+
+const data = ciqlJson
+                .create({})
+                .set("school", "ESATIC")
+                .set("location", "Treichville")
+                .getKeys()
+
+//output : data = ["ESATIC", "Treichville" ]
+```
+<h1 style="color:#9fa8da;">Licence</h1>
+<p>
+MIT License
+
+Copyright (c) 2021 dykoffi
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</p>
 <p align="center" style="font-size:12.5px">
 LICENSE <code>MIT</code>
 </p>
