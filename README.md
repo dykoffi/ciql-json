@@ -219,7 +219,7 @@ const data = ciqlJson
                 .create({})
                 .set("school", "ESATIC")
                 .set("location", "Treichville")
-                .getKeys()
+                .getValues()
 
 //output : data = ["ESATIC", "Treichville" ]
 ```
