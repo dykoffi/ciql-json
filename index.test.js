@@ -65,7 +65,7 @@ describe('Tester toute les fonctions du module ciql-json', () => {
     test('save', () => {
         expect(
             ciqlJson
-                .open("test.json")
+                .create({})
                 .popTo("courses")
                 .pushTo("courses","edy","koffi")
                 .save()
