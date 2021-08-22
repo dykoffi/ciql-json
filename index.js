@@ -68,6 +68,16 @@ module.exports = {
         }
 
     },
+    remove(key) {
+        try {
+            delete this.data[key]
+            return Object.keys(this.data)
+        } catch (error) {
+            console.error("Error (Function remove) : ", error.message);
+        } finally {
+            this.init()
+        }
+    },
     pushTo(key, ...values) {
         try {
             eval(`this.data.${key}.push(...values)`)
@@ -91,7 +101,7 @@ module.exports = {
             } catch (error) {
                 console.error("Error (Function popTo) : ", error.message);
             }
-        }finally{
+        } finally {
             return this
         }
 
@@ -131,5 +141,6 @@ module.exports = {
         } finally {
             this.init()
         }
-    },
+    }
+
 }
