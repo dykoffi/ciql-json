@@ -71,4 +71,12 @@ describe('Tester toute les fonctions du module ciql-json', () => {
                 .save()
         )
     });
+    test('remove', () => {
+        expect(
+            ciqlJson
+                .create({nom:"edy", age : 15})
+                .remove("age")
+                .getData()
+        )
+    });
 })

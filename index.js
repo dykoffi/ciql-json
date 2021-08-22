@@ -71,11 +71,10 @@ module.exports = {
     remove(key) {
         try {
             delete this.data[key]
-            return Object.keys(this.data)
         } catch (error) {
             console.error("Error (Function remove) : ", error.message);
         } finally {
-            this.init()
+            return this
         }
     },
     pushTo(key, ...values) {
