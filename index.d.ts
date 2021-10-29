@@ -43,11 +43,11 @@ export type CIJSON = {
     /**
     * Get values of JSON
     */
-    getValues(): object
+    getValues(): Array<string> | Array<number> | Array<object>
     /**
     * Get keys of JSON
     */
-    getKeys(): object
+    getKeys(): Array<string> | Array<number>
 }
 
 
