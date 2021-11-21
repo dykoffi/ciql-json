@@ -3,7 +3,7 @@
   <img width="200" src="https://raw.githubusercontent.com/dykoffi/files/main/logoCIQLJSON2.png" alt="CIQL JSON Logo">
 </p>
 
-<h1 align="center" style="color:grey;font-family:">CIQL JSON</h1>
+<h1 align="center" style="color:grey">CIQL JSON</h1>
 <p style="font-size:18.5px; border-bottom:1px solid grey; padding-bottom:30px" align="justify">
     Ciql-JSON is a tool for manipulating JSON files. it allows to open and modify a JSON file and save results in another file or in the current file. You can also use it to create JSON files, it is very practical and easy to use.
 </p>
